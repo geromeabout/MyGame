@@ -10,21 +10,21 @@ public class Game1 : Game
     Texture2D spacecraftTexture;
     Vector2 spacecraftPosition;
     float spacecraftSpeed;
-    Texture2D bulletTexture;
-    Vector2 bulletPosition;
-    float bulletSpeed;
     Texture2D asteroidTexture;
     Vector2 asteroidPosition;
     float asteroidSpeed;
-    //Texture2D[] asteroidsTexture = new Texture2D[20];
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
+    public Texture2D bulletTexture;
+    public Vector2 bulletPosition;
+    public float bulletSpeed;
+    public bool IsVisible;
 
     public Game1()
     {
         _graphics = new GraphicsDeviceManager(this);
         Content.RootDirectory = "Content";
-        IsMouseVisible = true;
+        //IsMouseVisible = true;
     }
 
     protected override void Initialize()
@@ -33,10 +33,10 @@ public class Game1 : Game
         Random rand = new Random();
         spacecraftPosition = new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight-50);
         spacecraftSpeed = 100f;
-        bulletPosition = new Vector2(0,0);
-        bulletSpeed = 1f;
         asteroidPosition = new Vector2(rand.Next(_graphics.PreferredBackBufferWidth), 0);
         asteroidSpeed = 0.5f;
+        bulletPosition = new Vector2();
+        bulletSpeed = 50f;
 
         base.Initialize();
     }
@@ -81,8 +81,9 @@ public class Game1 : Game
 
         if(kstate.IsKeyDown(Keys.Space))
         {
-            bulletPosition = spacecraftPosition;
-            bulletPosition.Y -= bulletSpeed + 6000;
+            bulletPosition = new Vector2(_graphics.PreferredBackBufferWidth/2,_graphics.PreferredBackBufferHeight-90);
+            bulletPosition.Y -= bulletSpeed;
+            IsVisible = true;
         }
         asteroidPosition.Y += asteroidSpeed;
         
@@ -113,7 +114,7 @@ public class Game1 : Game
                             Vector2.One,
                             SpriteEffects.None,
                             0f);
-            _spriteBatch.Draw(asteroidTexture,
+        _spriteBatch.Draw(asteroidTexture,
                             asteroidPosition,
                             null,
                             Color.White,
@@ -123,7 +124,6 @@ public class Game1 : Game
                             SpriteEffects.None,
                             0f); 
         _spriteBatch.End();
-
         base.Draw(gameTime);
     }
 }
