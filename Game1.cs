@@ -16,7 +16,7 @@ public class Game1 : Game
     Texture2D asteroidTexture;
     Vector2 asteroidPosition;
     float asteroidSpeed;
-    Texture2D[] asteroidsTexture = new Texture2D[20];
+    //Texture2D[] asteroidsTexture = new Texture2D[20];
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
 
@@ -48,10 +48,7 @@ public class Game1 : Game
         // TODO: use this.Content to load your game content here
         bulletTexture = Content.Load<Texture2D>("bullet");
         spacecraftTexture = Content.Load<Texture2D>("startup");
-        for (int i = 0; i < 20; i++)
-        {
-            asteroidsTexture[i] = Content.Load<Texture2D>("meteorite");
-        }
+        asteroidTexture = Content.Load<Texture2D>("meteorite");
     }
 
     protected override void Update(GameTime gameTime)
@@ -82,10 +79,10 @@ public class Game1 : Game
             spacecraftPosition.X += spacecraftSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
 
-        Keys[] keys = kstate.GetPressedKeys();
-        foreach(var key in keys)
+        if(kstate.IsKeyDown(Keys.Space))
         {
-            bulletPosition.Y -= bulletSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            bulletPosition = spacecraftPosition;
+            bulletPosition.Y -= bulletSpeed + 6000;
         }
         asteroidPosition.Y += asteroidSpeed;
         

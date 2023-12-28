@@ -26,3 +26,4 @@
 /home/sysadmin/projects/Current/MyGame/bin/Debug/net6.0/Content/startup.xnb
 /home/sysadmin/projects/Current/MyGame/bin/Debug/net6.0/Content/bullet.xnb
 /home/sysadmin/projects/Current/MyGame/bin/Debug/net6.0/Content/meteorite.xnb
+/home/sysadmin/projects/Current/MyGame/obj/Debug/net6.0/MyGame.sourcelink.json
