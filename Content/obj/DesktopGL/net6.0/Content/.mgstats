@@ -1,0 +1,4 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"/home/sysadmin/projects/Current/MyGame/Content/bullet.png","/home/sysadmin/projects/Current/MyGame/Content/bin/DesktopGL/Content/bullet.xnb","TextureProcessor","Texture2DContent",537,1109,0.0986668
+"/home/sysadmin/projects/Current/MyGame/Content/meteorite.png","/home/sysadmin/projects/Current/MyGame/Content/bin/DesktopGL/Content/meteorite.xnb","TextureProcessor","Texture2DContent",2353,16469,0.0969862
+"/home/sysadmin/projects/Current/MyGame/Content/startup.png","/home/sysadmin/projects/Current/MyGame/Content/bin/DesktopGL/Content/startup.xnb","TextureProcessor","Texture2DContent",1804,16469,0.1026562
